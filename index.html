@@ -5,14 +5,20 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/periodictable.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
 	<script type="text/javascript" src="assets/js/lib/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<h1>The Interactive Periodic Table</h1>
+	<h1  draggable="true">The Interactive Periodic Table</h1>
 <div id="container">
+<form action="" onsubmit="myFunction(); return false">
+	<input type="text" id="myInput" onfocus="this.value=''; clearHighlight()" placeholder="Search an for an Element...">
+	<input type="submit" value="submit">
+</form>
 	<div class="row row1">
 		<ul>
-			<a><li class="othernonmetals">H<div class="number">1</div></li></a>
+			<a><li class="othernonmetals element" id="1" draggable="true">H<div class="number">1</div></li></a>
 			<li class="invisible">2</li>
 			<li class="invisible">3</li>
 			<li class="invisible">4</li>
@@ -29,15 +35,15 @@
 			<li class="invisible">15</li>
 			<li class="invisible">16</li>
 			<li class="invisible">17</li>
-			<a><li class="noblegases">He<div class="number">2</div></li></a>
+			<a><li class="noblegases element" id="2">He<div class="number">2</div></li></a>
 		</ul>
 	</div>
 
 
 	<div class="row row2">
 		<ul>
-			<a><li class="alkali">Li<div class="number">3</div></li></a>
-			<a><li class="alkaline">Be<div class="number">4</div></li></a>
+			<a><li class="alkali element" id="3">Li<div class="number">3</div></li></a>
+			<a><li class="alkaline element" id="4">Be<div class="number">4</div></li></a>
 			<li class="invisible">3</li>
 			<li class="invisible">4</li>
 			<li class="invisible">5</li>
@@ -48,19 +54,19 @@
 			<li class="invisible">10</li>
 			<li class="invisible">11</li>
 			<li class="invisible">12</li>
-			<a><li class="metalloids">B<div class="number">5</div></li></a>
-			<a><li class="othernonmetals">C<div class="number">6</div></li></a>
-			<a><li class="othernonmetals">N<div class="number">7</div></li></a>
-			<a><li class="othernonmetals">O<div class="number">8</div></li></a>
-			<a><li class="halogens">F<div class="number">9</div></li></a>
-			<a><li class="noblegases">Ne<div class="number">10</div></li></a>
+			<a><li class="metalloids element" id="5">B<div class="number">5</div></li></a>
+			<a><li class="othernonmetals element" id="6">C<div class="number">6</div></li></a>
+			<a><li class="othernonmetals element" id="7">N<div class="number">7</div></li></a>
+			<a><li class="othernonmetals element" id="8">O<div class="number">8</div></li></a>
+			<a><li class="halogens element" id="9">F<div class="number">9</div></li></a>
+			<a><li class="noblegases element" id="10">Ne<div class="number">10</div></li></a>
 		</ul>
 	</div>
 
 	<div class="row row3">
 		<ul>
-			<a><li class="alkali">Na<div class="number">11</div></li></a>
-			<a><li class="alkaline">Mg<div class="number">12</div></li></a>
+			<a><li class="alkali element" id="11">Na<div class="number">11</div></li></a>
+			<a><li class="alkaline element" id="12">Mg<div class="number">12</div></li></a>
 			<li class="invisible">3</li>
 			<li class="invisible">4</li>
 			<li class="invisible">5</li>
@@ -71,104 +77,104 @@
 			<li class="invisible">10</li>
 			<li class="invisible">11</li>
 			<li class="invisible">12</li>
-			<a><li class="posttransitionmetals">Al<div class="number">13</div></li></a>
-			<a><li class="metalloids">Si<div class="number">14</div></li></a>
-			<a><li class="othernonmetals">P<div class="number">15</div></li></a>
-			<a><li class="othernonmetals">S<div class="number">16</div></li></a>
-			<a><li class="halogens">Cl<div class="number">17</div></li></a>
-			<a><li class="noblegases">Ar<div class="number">18</div></li></a>
+			<a><li class="posttransitionmetals element" id="13">Al<div class="number">13</div></li></a>
+			<a><li class="metalloids element" id="14">Si<div class="number">14</div></li></a>
+			<a><li class="othernonmetals element" id="15">P<div class="number">15</div></li></a>
+			<a><li class="othernonmetals element" id="16">S<div class="number">16</div></li></a>
+			<a><li class="halogens element" id="17">Cl<div class="number">17</div></li></a>
+			<a><li class="noblegases element" id="18">Ar<div class="number">18</div></li></a>
 		</ul>
 	</div>
 
 	<div class="row row4">
 		<ul>
-			<a><li class="alkali">K<div class="number">19</div></li></a>
-			<a><li class="alkaline">Ca<div class="number">20</div></li></a>
-			<a><li class="transitionmetals">Sc<div class="number">21</div></li></a>
-			<a><li class="transitionmetals">Ti<div class="number">22</div></li></a>
-			<a><li class="transitionmetals">V<div class="number">23</div></li></a>
-			<a><li class="transitionmetals">Cr<div class="number">24</div></li></a>
-			<a><li class="transitionmetals">Mn<div class="number">25</div></li></a>
-			<a><li class="transitionmetals">Fe<div class="number">26</div></li></a>
-			<a><li class="transitionmetals">Co<div class="number">27</div></li></a>
-			<a><li class="transitionmetals">Ni<div class="number">28</div></li></a>
-			<a><li class="transitionmetals">Cu<div class="number">29</div></li></a>
-			<a><li class="transitionmetals">Zn<div class="number">30</div></li></a>
-			<a><li class="posttransitionmetals">Ga<div class="number">31</div></li></a>
-			<a><li class="metalloids">Ge<div class="number">32</div></li></a>
-			<a><li class="metalloids">As<div class="number">33</div></li></a>
-			<a><li class="othernonmetals">Se<div class="number">34</div></li></a>
-			<a><li class="halogens">Br<div class="number">35</div></li></a>
-			<a><li class="noblegases">Kr<div class="number">36</div></li></a>
+			<a><li class="alkali element" id="19">K<div class="number">19</div></li></a>
+			<a><li class="alkaline element" id="20">Ca<div class="number">20</div></li></a>
+			<a><li class="transitionmetals element" id="21">Sc<div class="number">21</div></li></a>
+			<a><li class="transitionmetals element" id="22">Ti<div class="number">22</div></li></a>
+			<a><li class="transitionmetals element" id="23">V<div class="number">23</div></li></a>
+			<a><li class="transitionmetals element" id="24">Cr<div class="number">24</div></li></a>
+			<a><li class="transitionmetals element" id="25">Mn<div class="number">25</div></li></a>
+			<a><li class="transitionmetals element" id="26">Fe<div class="number">26</div></li></a>
+			<a><li class="transitionmetals element" id="27">Co<div class="number">27</div></li></a>
+			<a><li class="transitionmetals element" id="28">Ni<div class="number">28</div></li></a>
+			<a><li class="transitionmetals element" id="29">Cu<div class="number">29</div></li></a>
+			<a><li class="transitionmetals element" id="30">Zn<div class="number">30</div></li></a>
+			<a><li class="posttransitionmetals element" id="31">Ga<div class="number">31</div></li></a>
+			<a><li class="metalloids element" id="32">Ge<div class="number">32</div></li></a>
+			<a><li class="metalloids element" id="33">As<div class="number">33</div></li></a>
+			<a><li class="othernonmetals element" id="34">Se<div class="number">34</div></li></a>
+			<a><li class="halogens element" id="35">Br<div class="number">35</div></li></a>
+			<a><li class="noblegases element" id="36">Kr<div class="number">36</div></li></a>
 		</ul>
 	</div>
 
 	<div class="row row5">
 		<ul>
-			<a ><li class="alkali">Rb<div class="number">37</div></li></a>
-			<a><li class="alkaline">Sr<div class="number">38</div></li></a>
-			<a><li class="transitionmetals">Y<div class="number">39</div></li></a>
-			<a><li class="transitionmetals">Zr<div class="number">40</div></li></a>
-			<a><li class="transitionmetals">Nb<div class="number">41</div></li></a>
-			<a><li class="transitionmetals">Mo<div class="number">42</div></li></a>
-			<a><li class="transitionmetals">Tc<div class="number">43</div></li></a>
-			<a><li class="transitionmetals">Ru<div class="number">44</div></li></a>
-			<a><li class="transitionmetals">Rh<div class="number">45</div></li></a>
-			<a><li class="transitionmetals">Pd<div class="number">46</div></li></a>
-			<a><li class="transitionmetals">Ag<div class="number">47</div></li></a>
-			<a><li class="transitionmetals">Cd<div class="number">48</div></li></a>
-			<a><li class="posttransitionmetals">In<div class="number">49</div></li></a>
-			<a><li class="posttransitionmetals">Sn<div class="number">50</div></li></a>
-			<a><li class="metalloids">Sb<div class="number">51</div></li></a>
-			<a><li class="metalloids">Te<div class="number">52</div></li></a>
-			<a><li class="halogens">I<div class="number">53</div></li></a>
-			<a><li class="noblegases">Xe<div class="number">54</div></li></a>
+			<a ><li class="alkali element" id="37">Rb<div class="number">37</div></li></a>
+			<a><li class="alkaline element" id="38">Sr<div class="number">38</div></li></a>
+			<a><li class="transitionmetals element" id="39">Y<div class="number">39</div></li></a>
+			<a><li class="transitionmetals element" id="40">Zr<div class="number">40</div></li></a>
+			<a><li class="transitionmetals element" id="41">Nb<div class="number">41</div></li></a>
+			<a><li class="transitionmetals element" id="42">Mo<div class="number">42</div></li></a>
+			<a><li class="transitionmetals element" id="43">Tc<div class="number">43</div></li></a>
+			<a><li class="transitionmetals element" id="44">Ru<div class="number">44</div></li></a>
+			<a><li class="transitionmetals element" id="45">Rh<div class="number">45</div></li></a>
+			<a><li class="transitionmetals element" id="46">Pd<div class="number">46</div></li></a>
+			<a><li class="transitionmetals element" id="47">Ag<div class="number">47</div></li></a>
+			<a><li class="transitionmetals element" id="48">Cd<div class="number">48</div></li></a>
+			<a><li class="posttransitionmetals element" id="49">In<div class="number">49</div></li></a>
+			<a><li class="posttransitionmetals element" id="50">Sn<div class="number">50</div></li></a>
+			<a><li class="metalloids element" id="51">Sb<div class="number">51</div></li></a>
+			<a><li class="metalloids element" id="52">Te<div class="number">52</div></li></a>
+			<a><li class="halogens element" id="53">I<div class="number">53</div></li></a>
+			<a><li class="noblegases element" id="54">Xe<div class="number">54</div></li></a>
 		</ul>
 	</div>
 
 	<div class="row row6">
 		<ul>
-			<a><li class="alkali">Cs<div class="number">55</div></li></a>
-			<a><li class="alkaline">Ba<div class="number">56</div></li></a>
-			<a><li class="lanthanides">La<div class="number">57</div></li></a>
-			<a><li class="transitionmetals">Hf<div class="number">72</div></li></a>
-			<a><li class="transitionmetals">Ta<div class="number">73</div></li></a>
-			<a><li class="transitionmetals">W<div class="number">74</div></li></a>
-			<a><li class="transitionmetals">Re<div class="number">75</div></li></a>
-			<a><li class="transitionmetals">Os<div class="number">76</div></li></a>
-			<a><li class="transitionmetals">Ir<div class="number">77</div></li></a>
-			<a><li class="transitionmetals">Pt<div class="number">78</div></li></a>
-			<a><li class="transitionmetals">Au<div class="number">79</div></li></a>
-			<a><li class="transitionmetals">Hg<div class="number">80</div></li></a>
-			<a><li class="posttransitionmetals">Ti<div class="number">81</div></li></a>
-			<a><li class="posttransitionmetals">Pb<div class="number">82</div></li></a>
-			<a><li class="posttransitionmetals">Bi<div class="number">83</div></li></a>
-			<a><li class="metalloids">Po<div class="number">84</div></li></a>
-			<a><li class="halogens">At<div class="number">85</div></li></a>
-			<a><li class="noblegases">Rn<div class="number">86</div></li></a>
+			<a><li class="alkali element" id="55">Cs<div class="number">55</div></li></a>
+			<a><li class="alkaline element" id="56">Ba<div class="number">56</div></li></a>
+			<a><li class="lanthanides element" id="57">La<div class="number">57</div></li></a>
+			<a><li class="transitionmetals element" id="72">Hf<div class="number">72</div></li></a>
+			<a><li class="transitionmetals element" id="73">Ta<div class="number">73</div></li></a>
+			<a><li class="transitionmetals element" id="74">W<div class="number">74</div></li></a>
+			<a><li class="transitionmetals element" id="75">Re<div class="number">75</div></li></a>
+			<a><li class="transitionmetals element" id="76">Os<div class="number">76</div></li></a>
+			<a><li class="transitionmetals element" id="77">Ir<div class="number">77</div></li></a>
+			<a><li class="transitionmetals element" id="78">Pt<div class="number">78</div></li></a>
+			<a><li class="transitionmetals element" id="79">Au<div class="number">79</div></li></a>
+			<a><li class="transitionmetals element" id="80">Hg<div class="number">80</div></li></a>
+			<a><li class="posttransitionmetals element" id="81">Ti<div class="number">81</div></li></a>
+			<a><li class="posttransitionmetals element" id="82">Pb<div class="number">82</div></li></a>
+			<a><li class="posttransitionmetals element" id="83">Bi<div class="number">83</div></li></a>
+			<a><li class="metalloids element" id="84">Po<div class="number">84</div></li></a>
+			<a><li class="halogens element" id="85">At<div class="number">85</div></li></a>
+			<a><li class="noblegases element" id="86">Rn<div class="number">86</div></li></a>
 		</ul>
 	</div>
 
 	<div class="row row7">
 		<ul>
-			<a><li class="alkali">Fr<div class="number">87</div></li></a>
-			<a><li class="alkaline">Ra<div class="number">88</div></li></a>
-			<a><li class="actinides">Ac<div class="number">89</div></li></a>
-			<a><li class="transitionmetals">Rf<div class="number">104</div></li></a>
-			<a><li class="transitionmetals">Db<div class="number">105</div></li></a>
-			<a><li class="transitionmetals">Sg<div class="number">106</div></li></a>
-			<a><li class="transitionmetals">Bh<div class="number">107</div></li></a>
-			<a><li class="transitionmetals">Hs<div class="number">108</div></li></a>
-			<a><li class="unknown">Mt<div class="number">109</div></li></a>
-			<a><li class="unknown">Ds<div class="number">110</div></li></a>
-			<a><li class="unknown">Rg<div class="number">111</div></li></a>
-			<a><li class="transitionmetals">Cn<div class="number">112</div></li></a>
-			<a><li class="unknown">Nh<div class="number">113</div></li></a>
-			<a><li class="unknown">Fl<div class="number">114</div></li></a>
-			<a><li class="unknown">Mc<div class="number">115</div></li></a>
-			<a><li class="unknown">Lv<div class="number">116</div></li></a>
-			<a><li class="unknown">Ts<div class="number">117</div></li></a>
-			<a><li class="unknown">Og<div class="number">118</div></li></a>
+			<a><li class="alkali element" id="87">Fr<div class="number">87</div></li></a>
+			<a><li class="alkaline element" id="88">Ra<div class="number">88</div></li></a>
+			<a><li class="actinides element" id="89">Ac<div class="number">89</div></li></a>
+			<a><li class="transitionmetals element" id="104">Rf<div class="number">104</div></li></a>
+			<a><li class="transitionmetals element" id="105">Db<div class="number">105</div></li></a>
+			<a><li class="transitionmetals element" id="106">Sg<div class="number">106</div></li></a>
+			<a><li class="transitionmetals element" id="107">Bh<div class="number">107</div></li></a>
+			<a><li class="transitionmetals element" id="108">Hs<div class="number">108</div></li></a>
+			<a><li class="unknown element" id="109">Mt<div class="number">109</div></li></a>
+			<a><li class="unknown element" id="110">Ds<div class="number">110</div></li></a>
+			<a><li class="unknown element" id="111">Rg<div class="number">111</div></li></a>
+			<a><li class="transitionmetals element" id="112">Cn<div class="number">112</div></li></a>
+			<a><li class="unknown element" id="113">Nh<div class="number">113</div></li></a>
+			<a><li class="unknown element" id="1114">Fl<div class="number">114</div></li></a>
+			<a><li class="unknown element" id="115">Mc<div class="number">115</div></li></a>
+			<a><li class="unknown element" id="116">Lv<div class="number">116</div></li></a>
+			<a><li class="unknown element" id="117">Ts<div class="number">117</div></li></a>
+			<a><li class="unknown element" id="118">Og<div class="number">118</div></li></a>
 		</ul>
 	</div>
 
@@ -177,21 +183,21 @@
 			<li class="invisible">1</li>
 			<li class="invisible">2</li>
 			<li class="invisible">3</li>
-			<a><li class="lanthanides">Ce<div class="number">58</div></li></a>
-			<a><li class="lanthanides">Pr<div class="number">59</div></li></a>
-			<a><li class="lanthanides">Nd<div class="number">60</div></li></a>
-			<a><li class="lanthanides">Pm<div class="number">61</div></li></a>
-			<a><li class="lanthanides">Sm<div class="number">62</div></li></a>
-			<a><li class="lanthanides">Eu<div class="number">63</div></li></a>
-			<a><li class="lanthanides">Gd<div class="number">64</div></li></a>
-			<a><li class="lanthanides">Tb<div class="number">65</div></li></a>
-			<a><li class="lanthanides">Dy<div class="number">66</div></li></a>
-			<a><li class="lanthanides">Ho<div class="number">67</div></li></a>
-			<a><li class="lanthanides">Er<div class="number">68</div></li></a>
-			<a><li class="lanthanides">Tm<div class="number">69</div></li></a>
-			<a><li class="lanthanides">Yb<div class="number">70</div></li></a>
-			<a><li class="lanthanides">Lu<div class="number">71</div></li></a>
-			<li class="invisible">18</li class="lanthanides"></a>
+			<a><li class="lanthanides element" id="58">Ce<div class="number">58</div></li></a>
+			<a><li class="lanthanides element" id="59">Pr<div class="number">59</div></li></a>
+			<a><li class="lanthanides element" id="60">Nd<div class="number">60</div></li></a>
+			<a><li class="lanthanides element" id="61">Pm<div class="number">61</div></li></a>
+			<a><li class="lanthanides element" id="62">Sm<div class="number">62</div></li></a>
+			<a><li class="lanthanides element" id="63">Eu<div class="number">63</div></li></a>
+			<a><li class="lanthanides element" id="64">Gd<div class="number">64</div></li></a>
+			<a><li class="lanthanides element" id="65">Tb<div class="number">65</div></li></a>
+			<a><li class="lanthanides element" id="66">Dy<div class="number">66</div></li></a>
+			<a><li class="lanthanides element" id="67">Ho<div class="number">67</div></li></a>
+			<a><li class="lanthanides element" id="68">Er<div class="number">68</div></li></a>
+			<a><li class="lanthanides element" id="69">Tm<div class="number">69</div></li></a>
+			<a><li class="lanthanides element" id="70">Yb<div class="number">70</div></li></a>
+			<a><li class="lanthanides element" id="71">Lu<div class="number">71</div></li></a>
+			<li class="invisible">18</li class="lanthanides element"></a>
 		</ul>
 	</div>
 
@@ -200,23 +206,39 @@
 			<li class="invisible">1</li>
 			<li class="invisible">2</li>
 			<li class="invisible">3</li>
-			<a><li class="actinides">Th<div class="number">90</div></li></a>
-			<a><li class="actinides">Pa<div class="number">91</div></li></a>
-			<a><li class="actinides">U<div class="number">92</div></li></a>
-			<a><li class="actinides">Np<div class="number">93</div></li></a>
-			<a><li class="actinides">Pu<div class="number">94</div></li></a>
-			<a><li class="actinides">Am<div class="number">95</div></li></a>
-			<a><li class="actinides">Cm<div class="number">96</div></li></a>
-			<a><li class="actinides">Bk<div class="number">97</div></li></a>
-			<a><li class="actinides">Cf<div class="number">98</div></li></a>
-			<a><li class="actinides">Es<div class="number">99</div></li></a>
-			<a><li class="actinides">Fm<div class="number">100</div></li></a>
-			<a><li class="actinides">Md<div class="number">101</div></li></a>
-			<a><li class="actinides">No<div class="number">102</div></li></a>
-			<a><li class="actinides">Lr<div class="number">103</div></li></a>
+			<a><li class="actinides element" id="90">Th<div class="number">90</div></li></a>
+			<a><li class="actinides element" id="91">Pa<div class="number">91</div></li></a>
+			<a><li class="actinides element" id="92">U<div class="number">92</div></li></a>
+			<a><li class="actinides element" id="93">Np<div class="number">93</div></li></a>
+			<a><li class="actinides element" id="94">Pu<div class="number">94</div></li></a>
+			<a><li class="actinides element" id="95">Am<div class="number">95</div></li></a>
+			<a><li class="actinides element" id="96">Cm<div class="number">96</div></li></a>
+			<a><li class="actinides element" id="97">Bk<div class="number">97</div></li></a>
+			<a><li class="actinides element" id="98">Cf<div class="number">98</div></li></a>
+			<a><li class="actinides element" id="99">Es<div class="number">99</div></li></a>
+			<a><li class="actinides element" id="100">Fm<div class="number">100</div></li></a>
+			<a><li class="actinides element" id="101">Md<div class="number">101</div></li></a>
+			<a><li class="actinides element" id="102">No<div class="number">102</div></li></a>
+			<a><li class="actinides element" id="103">Lr<div class="number">103</div></li></a>
 			<li class="invisible">18</li>
 		</ul>
 	</div>
+	
+</div>
+<div class="buttons">
+    <button class="alkalibutton">Alkalis</button>
+	<button class="alkalinebutton">Alkalines</button>
+	<button class="lanthanidebutton">Lanthanides</button>
+	<button class="actinidebutton">Actinides</button>
+	<button class="transitionmetalsbutton">Transition Metals</button>
+	<button class="noblegasbutton">Noble Gases</button>
+	<button class="othernonmetalsbutton">Other Non Metals</button>
+	<button class="posttransitionmetalsbutton">Post Transition Metals</button>
+	<button class="metalloidsbutton">Metalloids</button>
+	<button class="halogenbutton">Halogens</button>
+	<button class="unknownbutton">Unknown</button>
+	<button class="clearbutton">Clear</button>
+
 </div>
 <script type="text/javascript" src="assets/js/periodictable.js"></script>
 </body>

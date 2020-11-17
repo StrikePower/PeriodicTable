@@ -1,6 +1,6 @@
 body {
 	background: black;
-
+	font-family: 'Oswald', sans-serif;
 }
 
 
@@ -9,9 +9,23 @@ h1 {
 	color: white;
 }
 
+#myInput { 
+	width: 200px;
+	border-radius: 5px;
+ }
+
 a {
 	text-decoration: none;
 	color: inherit;
+}
+
+.highlight {
+	background-color: white !important;
+	color: black;
+}
+
+.buttonhighlight{
+	background-color: red !important;
 }
 
 #container {
@@ -20,6 +34,11 @@ a {
 	margin: auto;
 
 }
+
+.buttons{
+	margin:auto;
+	text-align: center;
+	}
 
 
 ul {
@@ -106,6 +125,10 @@ li {
 li:hover {
 	background-color: white;
 	color: black;
+}
+
+button:hover {
+	background-color: blue !important;
 }
 
 .number {
